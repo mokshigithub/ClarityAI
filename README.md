@@ -7,27 +7,37 @@ The system uses AI techniques like BERT (for contextual understanding) and a BiL
 🚀 Features
 🧠 Overthinking Detection System
 🤖 AI-based Analysis using BERT
-📊 Classification: Low, Moderate, High Overthinking
+📊 Classification:
+Low Overthinking
+Moderate Overthinking
+High Overthinking
 📈 Progress Tracking Dashboard
-🛠 Tools & Exercises (Breathing, Journaling, Thought Transformation)
-💡 Motivation Hub (Quotes, Affirmations, Stories)
+🛠 Tools & Exercises:
+Breathing Techniques
+Journaling
+Thought Transformation
+💡 Motivation Hub:
+Quotes
+Affirmations
+Stories
 🔐 User Login System
 
 🧩 Modules
-Home Module
-Test Module
-Result Module
-Progress Module
-Tools & Exercises Module
-Motivation Module
-Authentication (Login) Module
-
+🏠 Home Module
+📝 Test Module
+📊 Result Module
+📈 Progress Module
+🛠 Tools & Exercises Module
+💡 Motivation Module
+🔐 Authentication (Login) Module
 🛠️ Technologies Used
 Python
 Flask
 Transformers (BERT)
 NumPy
-HTML, CSS, JavaScript
+HTML
+CSS
+JavaScript
 
 🧠 AI Model
 BERT is used for understanding emotional context from user responses
