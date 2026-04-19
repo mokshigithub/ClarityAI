@@ -1,8 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Overthinking Test</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: linear-gradient(to right, #e0ecff, #f7f9ff);
+            margin: 0;
+            text-align: center;
+        }
+
+        header {
+            background-color: #4a6cf7;
+            color: white;
+            padding: 20px;
+        }
+
+        .container {
+            padding: 30px;
+        }
+
+        .card {
+            background: white;
+            width: 400px;
+            margin: 15px auto;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            text-align: left;
+        }
+
+        .question {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .options {
+            margin-top: 5px;
+        }
+
+        .btn {
+            margin-top: 20px;
+            padding: 12px 25px;
+            background-color: #4a6cf7;
+            color: white;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .btn:hover {
+            background-color: #3a55d1;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>🧠 Overthinking Test</h1>
+    <p>Answer honestly to get accurate results</p>
+</header>
+
+<div class="container">
+
 <form method="POST" action="/result">
+
   {% for q in questions %}
-    <p>{{ q }}</p>
-    <input type="radio" name="answers" value="yes" required> Yes
-    <input type="radio" name="answers" value="no"> No
+    <div class="card">
+        <div class="question">{{ loop.index }}. {{ q }}</div>
+
+        <div class="options">
+            <input type="radio" name="answers" value="yes" required> Yes
+            <input type="radio" name="answers" value="no"> No
+        </div>
+    </div>
   {% endfor %}
-  <button type="submit">Submit</button>
+
+  <button type="submit" class="btn">Submit</button>
+
 </form>
+
+</div>
+
+</body>
+</html>

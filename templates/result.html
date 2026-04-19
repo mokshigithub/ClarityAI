@@ -1,9 +1,96 @@
-<h2>{{ level }}</h2>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Result</title>
 
-<p>BERT Analysis: {{ bert }}</p>
+    <style>
+        body {
+            font-family: Arial;
+            background: linear-gradient(to right, #e0ecff, #f7f9ff);
+            margin: 0;
+            text-align: center;
+        }
 
-<a href="/">Go Home</a>
+        header {
+            background-color: #4a6cf7;
+            color: white;
+            padding: 20px;
+        }
 
+        .container {
+            padding: 40px;
+        }
 
+        .card {
+            background: white;
+            width: 350px;
+            margin: auto;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
 
+        .level {
+            font-size: 28px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
 
+        .low { color: green; }
+        .moderate { color: orange; }
+        .high { color: red; }
+
+        .btn {
+            margin-top: 20px;
+            padding: 12px 25px;
+            background-color: #4a6cf7;
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background-color: #3a55d1;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>🧠 Your Result</h1>
+</header>
+
+<div class="container">
+
+    <div class="card">
+
+        {% if "Low" in level %}
+            <div class="level low">{{ level }}</div>
+        {% elif "Moderate" in level %}
+            <div class="level moderate">{{ level }}</div>
+        {% else %}
+            <div class="level high">{{ level }}</div>
+        {% endif %}
+
+        <p><b>BERT Analysis:</b> {{ bert }}</p>
+
+        <p>
+        {% if "High" in level %}
+            Try meditation, reduce stress, and take breaks.
+        {% elif "Moderate" in level %}
+            Practice relaxation and journaling.
+        {% else %}
+            You are doing well! Keep maintaining balance 😊
+        {% endif %}
+        </p>
+
+    </div>
+
+    <a href="/" class="btn">⬅ Go Home</a>
+
+</div>
+
+</body>
+</html>

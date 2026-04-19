@@ -1,7 +1,72 @@
-<h2>Motivation Hub</h2>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Motivation Hub</title>
 
-{% for q in quotes %}
-<p>{{ q }}</p>
-{% endfor %}
+    <style>
+        body {
+            font-family: Arial;
+            background: linear-gradient(to right, #f7f9ff, #e0ecff);
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
 
-<a href="/">Go Home</a>
+        header {
+            background-color: #4a6cf7;
+            color: white;
+            padding: 20px;
+        }
+
+        .container {
+            padding: 30px;
+        }
+
+        .card {
+            background: white;
+            width: 300px;
+            margin: 15px auto;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            font-size: 18px;
+        }
+
+        .btn {
+            margin-top: 20px;
+            padding: 12px 25px;
+            background-color: #4a6cf7;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background-color: #3a55d1;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>💡 Motivation Hub</h1>
+    <p>Stay positive and focused</p>
+</header>
+
+<div class="container">
+
+    {% for q in quotes %}
+    <div class="card">
+        "{{ q }}"
+    </div>
+    {% endfor %}
+
+    <a href="/" class="btn">⬅ Go Home</a>
+
+</div>
+
+</body>
+</html>

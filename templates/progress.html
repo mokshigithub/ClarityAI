@@ -1,4 +1,76 @@
-<h2>Progress Tracking</h2>
-<p>Average Score: {{ avg }}</p>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Progress Tracking</title>
 
-<a href="/">Go Home</a>
+    <style>
+        body {
+            font-family: Arial;
+            background: linear-gradient(to right, #e0ecff, #f7f9ff);
+            margin: 0;
+            text-align: center;
+        }
+
+        header {
+            background-color: #4a6cf7;
+            color: white;
+            padding: 20px;
+        }
+
+        .container {
+            padding: 40px;
+        }
+
+        .card {
+            background: white;
+            width: 300px;
+            margin: auto;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            font-size: 20px;
+        }
+
+        .score {
+            font-size: 40px;
+            color: #4a6cf7;
+            margin: 10px 0;
+        }
+
+        .btn {
+            margin-top: 20px;
+            padding: 12px 25px;
+            background-color: #4a6cf7;
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background-color: #3a55d1;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1> Progress Tracking</h1>
+    <p>Monitor your mental improvement</p>
+</header>
+
+<div class="container">
+
+    <div class="card">
+        <p>Average Overthinking Score</p>
+        <div class="score">{{ avg }}</div>
+        <p>Keep improving your mental clarity!</p>
+    </div>
+
+    <a href="/" class="btn">⬅ Go Home</a>
+
+</div>
+
+</body>
+</html>
