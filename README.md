@@ -5,13 +5,13 @@ Clarity AI is an intelligent web-based system designed to detect overthinking le
 The system uses AI techniques like BERT (for contextual understanding) and a BiLSTM-inspired scoring mechanism to analyze user responses and classify mental patterns.
 
 🚀 Features
-🧠 Overthinking Detection System
-🤖 AI-based Analysis using BERT
-📊 Classification: Low, Moderate, High Overthinking
-📈 Progress Tracking Dashboard
-🛠 Tools & Exercises (Breathing, Journaling, Thought Transformation)
-💡 Motivation Hub (Quotes, Affirmations, Stories)
-🔐 User Login System
+ Overthinking Detection System
+ AI-based Analysis using BERT
+ Classification: Low, Moderate, High Overthinking
+ Progress Tracking Dashboard
+ Tools & Exercises (Breathing, Journaling, Thought Transformation)
+ Motivation Hub (Quotes, Affirmations, Stories)
+ User Login System
 
 🛠️ Technologies Used
 Python
