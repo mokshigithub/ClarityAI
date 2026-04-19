@@ -1,0 +1,8 @@
+<form method="POST" action="/result">
+  {% for q in questions %}
+    <p>{{ q }}</p>
+    <input type="radio" name="answers" value="yes" required> Yes
+    <input type="radio" name="answers" value="no"> No
+  {% endfor %}
+  <button type="submit">Submit</button>
+</form>
