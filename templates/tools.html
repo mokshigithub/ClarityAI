@@ -1,89 +1,197 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Tools & Exercises</title>
+    <title>Clarity AI - Tools</title>
 
     <style>
         body {
-            font-family: Arial;
-            background: linear-gradient(to right, #e0ecff, #f7f9ff);
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(to right, #eef4ff, #f6f9ff);
             margin: 0;
-            text-align: center;
         }
 
-        header {
-            background-color: #4a6cf7;
-            color: white;
-            padding: 20px;
-        }
-
-        .container {
-            padding: 30px;
-        }
-
-        .card {
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 40px;
             background: white;
-            width: 320px;
-            margin: 15px auto;
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
 
-        .title {
-            font-size: 20px;
-            margin-bottom: 10px;
+        .logo {
+            font-weight: bold;
             color: #4a6cf7;
         }
 
-        .desc {
-            font-size: 15px;
-            color: #555;
+        .menu a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #333;
+        }
+
+        .menu a.active {
+            background: #dcdcff;
+            padding: 6px 12px;
+            border-radius: 10px;
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .tabs button {
+            padding: 10px 30px;
+            border: none;
+            margin: 5px;
+            border-radius: 20px;
+            background: #eee;
+            cursor: pointer;
+        }
+
+        .tabs button.active {
+            background: #dcdcff;
+        }
+
+        /* Card */
+        .card {
+            width: 70%;
+            margin: 30px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+
+        /* Breathing Circle */
+        .circle {
+            width: 150px;
+            height: 150px;
+            background: #dbeafe;
+            border-radius: 50%;
+            margin: 30px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            color: #333;
+            transition: transform 2s ease-in-out;
+        }
+
+        .circle.animate {
+            transform: scale(1.2);
         }
 
         .btn {
-            margin-top: 20px;
             padding: 12px 25px;
-            background-color: #4a6cf7;
+            background: #4a6cf7;
             color: white;
-            border-radius: 8px;
-            text-decoration: none;
-            display: inline-block;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
         }
 
         .btn:hover {
-            background-color: #3a55d1;
+            background: #3a55d1;
         }
     </style>
 </head>
 
 <body>
 
-<header>
-    <h1>🛠 Tools & Exercises</h1>
-    <p>Improve your mental clarity</p>
-</header>
-
-<div class="container">
-
-    <div class="card">
-        <div class="title">🫁 Breathing Exercise</div>
-        <div class="desc">Inhale 4 seconds → Hold 4 seconds → Exhale 4 seconds</div>
+<!-- Navbar -->
+<div class="navbar">
+    <div class="logo">🧠 Clarity AI</div>
+    <div class="menu">
+        <a href="/">Home</a>
+        <a href="/test">Take Test</a>
+        <a href="/motivation">Motivation</a>
+        <a class="active">Tools</a>
+        <a href="/progress">Progress</a>
     </div>
-
-    <div class="card">
-        <div class="title">📝 Journaling</div>
-        <div class="desc">Write your thoughts to reduce stress and overthinking</div>
-    </div>
-
-    <div class="card">
-        <div class="title">💭 Thought Transformation</div>
-        <div class="desc">Convert negative thoughts into positive ones</div>
-    </div>
-
-    <a href="/" class="btn">⬅ Go Home</a>
-
 </div>
+
+<!-- Tabs -->
+<div class="tabs">
+    <button class="active" onclick="showTab('breathing')">Breathing</button>
+    <button onclick="showTab('journal')">Journal</button>
+    <button onclick="showTab('transform')">Transform</button>
+</div>
+
+<!-- Breathing -->
+<div id="breathing" class="card">
+    <h3>🌬 4-4-4 Breathing Exercise</h3>
+    <p>
+        This simple breathing technique helps calm your nervous system and reduce anxiety.
+        Breathe in for 4 seconds, hold for 4 seconds, and breathe out for 4 seconds.
+    </p>
+
+    <div class="circle" id="circle">
+        <div id="count">4</div>
+    </div>
+
+    <button class="btn" onclick="startBreathing()">▶ Start Exercise</button>
+</div>
+
+<!-- Journal -->
+<div id="journal" class="card" style="display:none;">
+    <h3>📝 Guided Journal</h3>
+    <p><b>Today's Prompt:</b> What am I grateful for today?</p>
+
+    <textarea style="width:80%;height:100px;"></textarea><br>
+    <button class="btn">Save Entry</button>
+</div>
+
+<!-- Transform -->
+<div id="transform" class="card" style="display:none;">
+    <h3>💭 Thought Transformation</h3>
+
+    <input id="inputText" style="width:70%;padding:10px;"
+           placeholder="Example: I always mess things up...">
+
+    <br><br>
+    <button class="btn" onclick="transform()">Transform Thought</button>
+
+    <p id="output"></p>
+</div>
+
+<script>
+function showTab(tab) {
+    document.getElementById("breathing").style.display = "none";
+    document.getElementById("journal").style.display = "none";
+    document.getElementById("transform").style.display = "none";
+
+    document.getElementById(tab).style.display = "block";
+}
+
+// Breathing animation
+function startBreathing() {
+    let steps = ["Breathe In", "Hold", "Breathe Out"];
+    let i = 0;
+
+    setInterval(() => {
+        document.getElementById("count").innerText = steps[i];
+        document.getElementById("circle").classList.toggle("animate");
+        i = (i + 1) % 3;
+    }, 4000);
+}
+
+// Thought transform
+function transform() {
+    let text = document.getElementById("inputText").value;
+
+    if (text === "") {
+        document.getElementById("output").innerText = "Enter a thought first.";
+    } else {
+        document.getElementById("output").innerText =
+        "Try reframing: I may struggle sometimes, but I am learning and improving.";
+    }
+}
+</script>
 
 </body>
 </html>

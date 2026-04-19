@@ -18,23 +18,27 @@
         }
 
         .container {
-            padding: 40px;
+            padding: 30px;
         }
 
         .card {
             background: white;
-            width: 300px;
-            margin: auto;
-            padding: 25px;
+            width: 260px;
+            padding: 20px;
+            margin: 15px;
             border-radius: 12px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            font-size: 20px;
+            display: inline-block;
         }
 
-        .score {
-            font-size: 40px;
+        .big {
+            font-size: 30px;
             color: #4a6cf7;
             margin: 10px 0;
+        }
+
+        .section {
+            margin-top: 30px;
         }
 
         .btn {
@@ -50,24 +54,61 @@
         .btn:hover {
             background-color: #3a55d1;
         }
+
+        .history {
+            background: white;
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
     </style>
 </head>
 
 <body>
 
 <header>
-    <h1> Progress Tracking</h1>
-    <p>Monitor your mental improvement</p>
+    <h1>Your Progress</h1>
+    <p>Track your mental health journey and celebrate your achievements</p>
 </header>
 
 <div class="container">
 
+    <!-- Top Cards -->
     <div class="card">
-        <p>Average Overthinking Score</p>
-        <div class="score">{{ avg }}</div>
-        <p>Keep improving your mental clarity!</p>
+        <p> Current Streak</p>
+        <div class="big">0</div>
+        <p>Consecutive days checked in</p>
     </div>
 
+    <div class="card">
+        <p>Average Score</p>
+        <div class="big">{{ avg }}%</div>
+        <p>Across all tests</p>
+    </div>
+
+    <div class="card">
+        <p>Latest Change</p>
+        <div class="big">+0%</div>
+        <p>Compared to previous test</p>
+    </div>
+
+    <!-- Action -->
+    <div class="section">
+        <a href="/test" class="btn">Check In Today</a>
+    </div>
+
+    <!-- History -->
+    <div class="section">
+        <div class="history">
+            <h3>Test History</h3>
+            <p>No test results yet</p>
+            <p><b>Take your first test to see progress</b></p>
+        </div>
+    </div>
+
+    <!-- Back -->
     <a href="/" class="btn">⬅ Go Home</a>
 
 </div>

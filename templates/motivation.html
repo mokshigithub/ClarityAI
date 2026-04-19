@@ -7,9 +7,8 @@
         body {
             font-family: Arial;
             background: linear-gradient(to right, #f7f9ff, #e0ecff);
-            text-align: center;
             margin: 0;
-            padding: 0;
+            text-align: center;
         }
 
         header {
@@ -22,25 +21,47 @@
             padding: 30px;
         }
 
+        .tabs button {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            background-color: #4a6cf7;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .tabs button:hover {
+            background-color: #3a55d1;
+        }
+
         .card {
             background: white;
-            width: 300px;
-            margin: 15px auto;
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            width: 400px;
+            margin: 20px auto;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
             font-size: 18px;
         }
 
+        .quote {
+            font-style: italic;
+        }
+
+        .author {
+            margin-top: 10px;
+            color: #555;
+        }
+
         .btn {
-            margin-top: 20px;
-            padding: 12px 25px;
+            margin-top: 15px;
+            padding: 10px 20px;
             background-color: #4a6cf7;
             color: white;
-            border: none;
             border-radius: 8px;
-            text-decoration: none;
-            display: inline-block;
+            border: none;
+            cursor: pointer;
         }
 
         .btn:hover {
@@ -53,20 +74,65 @@
 
 <header>
     <h1>💡 Motivation Hub</h1>
-    <p>Stay positive and focused</p>
+    <p>Find inspiration, encouragement, and positive affirmations to support your mental health journey</p>
 </header>
 
 <div class="container">
 
-    {% for q in quotes %}
-    <div class="card">
-        "{{ q }}"
+    <!-- Tabs -->
+    <div class="tabs">
+        <button onclick="showTab('quotes')">Quotes</button>
+        <button onclick="showTab('affirmations')">Affirmations</button>
+        <button onclick="showTab('stories')">Stories</button>
     </div>
-    {% endfor %}
 
-    <a href="/" class="btn">⬅ Go Home</a>
+    <!-- Quotes Section -->
+    <div id="quotes" class="card">
+        <p class="quote" id="quoteText">
+            "You don't have to control your thoughts. You just have to stop letting them control you."
+        </p>
+        <p class="author" id="quoteAuthor">— Dan Millman</p>
+        <button class="btn" onclick="nextQuote()">Next Quote</button>
+    </div>
+
+    <!-- Affirmations -->
+    <div id="affirmations" class="card" style="display:none;">
+        <p>✨ I am calm and in control of my thoughts.</p>
+        <p>✨ I choose peace over worry.</p>
+        <p>✨ My mind is clear and focused.</p>
+    </div>
+
+    <!-- Stories -->
+    <div id="stories" class="card" style="display:none;">
+        <p>🌱 A person once struggled with overthinking but learned to pause, breathe, and focus on the present. Slowly, their mind became calmer and more peaceful.</p>
+    </div>
 
 </div>
+
+<script>
+    let quotes = [
+        ["You don't have to control your thoughts. You just have to stop letting them control you.", "Dan Millman"],
+        ["Worrying is like sitting in a rocking chair. It gives you something to do but doesn't get you anywhere.", "English Proverb"],
+        ["The present moment is the only time over which we have dominion.", "Thích Nhất Hạnh"],
+        ["You are not your thoughts. You are the observer of your thoughts.", "Amit Ray"]
+    ];
+
+    let index = 0;
+
+    function nextQuote() {
+        index = (index + 1) % quotes.length;
+        document.getElementById("quoteText").innerText = quotes[index][0];
+        document.getElementById("quoteAuthor").innerText = "— " + quotes[index][1];
+    }
+
+    function showTab(tab) {
+        document.getElementById("quotes").style.display = "none";
+        document.getElementById("affirmations").style.display = "none";
+        document.getElementById("stories").style.display = "none";
+
+        document.getElementById(tab).style.display = "block";
+    }
+</script>
 
 </body>
 </html>
