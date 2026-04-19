@@ -39,6 +39,8 @@ questions = [
     "Do you find it hard to stop worrying?",
     "Do you feel your thoughts are uncontrollable?"
 ]
+
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
@@ -64,7 +66,7 @@ def test():
     return render_template('test.html', questions=questions)
 
 
-# 🔹 Result Module (UPDATED WITH AI)
+# 🔹 Result Module 
 @app.route('/result', methods=['POST'])
 def result():
     answers = request.form.getlist('answers')
